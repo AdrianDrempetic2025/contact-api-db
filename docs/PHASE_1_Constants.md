@@ -1,3 +1,7 @@
+=== Built using the **SMAP software engineering process**, which ensures flawless execution, architectural clarity, and zero-friction developer onboarding ===
+
+---
+
 # Phase 1: Create and Code - `config/constants.ts`
 
 ## Overview

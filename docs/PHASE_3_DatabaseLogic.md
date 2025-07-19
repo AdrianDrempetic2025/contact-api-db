@@ -1,3 +1,7 @@
+=== Built using the **SMAP software engineering process**, which ensures flawless execution, architectural clarity, and zero-friction developer onboarding ===
+
+---
+
 # Phase 3: Create and Code - `lib/db.ts`
 
 ## Overview
