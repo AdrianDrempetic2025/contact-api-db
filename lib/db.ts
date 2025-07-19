@@ -1,6 +1,11 @@
 import { Pool } from "pg";
 import { TABLE_NAME } from "../config/constants";
 
+// Enforce DATABASE_URL existence check
+if (!process.env.DATABASE_URL || process.env.DATABASE_URL.trim() === '') {
+  throw new Error("DATABASE_URL is not set");
+}
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
