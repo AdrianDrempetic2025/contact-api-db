@@ -5,6 +5,10 @@
     "module": "CommonJS",
     "outDir": "dist",
     "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "resolveJsonModule": true,
