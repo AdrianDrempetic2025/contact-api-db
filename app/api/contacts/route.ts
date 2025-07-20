@@ -2,11 +2,11 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { validateContactInput } from '@/src/modules/contacts/model/contact.schema';
-import { insertContactMessage } from '@/src/db/client';
+import { createContact } from '@/src/modules/contacts/service/createContact'; // Import createContact
+import { errorToResponse } from '@/src/lib/api/errorToResponse'; // Import errorToResponse
 import {
   INVALID_CONTENT_TYPE_RESPONSE,
   MALFORMED_JSON_RESPONSE,
-  INTERNAL_ERROR_RESPONSE,
 } from '@/src/lib/constants';
 
 export async function POST(req: NextRequest): Promise<Response> {
@@ -20,8 +20,9 @@ export async function POST(req: NextRequest): Promise<Response> {
   let parsedBody: unknown;
   try {
     parsedBody = await req.json();
-  } catch {
-    return NextResponse.json(MALFORMED_JSON_RESPONSE, { status: 400 });
+  } catch (error) {
+    // Pass the error to the errorToResponse utility
+    return errorToResponse({ message: 'Malformed JSON', status: 400, issues: error });
   }
 
   // 3. Input Validation
@@ -30,13 +31,14 @@ export async function POST(req: NextRequest): Promise<Response> {
     return NextResponse.json(validationResult.errors, { status: 400 });
   }
 
-  const { name, email, message } = parsedBody as any;
-
-  // 4. Insert into DB
+  // 4. Create Contact using the service
   try {
-    await insertContactMessage(name, email, message);
-    return NextResponse.json({ success: true }, { status: 200 });
-  } catch {
-    return NextResponse.json(INTERNAL_ERROR_RESPONSE, { status: 500 });
+    const { name, email, message } = parsedBody as any; // Assuming parsedBody is correctly typed after validation
+    const contact = await createContact({ name, email, message }); // Call createContact
+    // Return 201 response with ID on success
+    return NextResponse.json({ id: contact.id }, { status: 201 });
+  } catch (error: any) {
+    // Catch and return errorToResponse(err)
+    return errorToResponse(error);
   }
 }
