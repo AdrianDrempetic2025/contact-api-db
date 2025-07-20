@@ -1,4 +1,5 @@
 # Dependencies
+.clinerules
 node_modules/
 
 # Environment variables

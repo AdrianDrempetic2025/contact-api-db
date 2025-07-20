@@ -4,7 +4,7 @@ import { z } from 'zod';
 export const contactInputSchema = z.object({
   name: z.string().min(2, { message: "Name is required" }),
   email: z.string().email({ message: "Invalid email address" }),
-  message: z.string().min(5, { message: "Message is required" }),
+  message: z.string().min(20, { message: "Message must be at least 20 characters" }),
 });
 
 export function validateContactInput(input: unknown): {
