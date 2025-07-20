@@ -3,13 +3,16 @@
     "target": "ES2022",
     "lib": ["DOM", "ES2022"],
     "module": "CommonJS",
-    "outDir": "dist",
+    "outDir": "build/",
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     },
     "strict": true,
+    "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
     "noImplicitOverride": true,
     "resolveJsonModule": true,
     "types": ["node"],

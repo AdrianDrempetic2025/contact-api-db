@@ -1,11 +1,10 @@
 import { z } from 'zod';
-import { contactMessages } from '@/src/db/schema'; // Corrected import path
 
 // Define a basic Zod schema for contact input, assuming it aligns with the DB schema
 export const contactInputSchema = z.object({
-  name: z.string().min(1, { message: "Name is required" }),
+  name: z.string().min(2, { message: "Name is required" }),
   email: z.string().email({ message: "Invalid email address" }),
-  message: z.string().min(1, { message: "Message is required" }),
+  message: z.string().min(5, { message: "Message is required" }),
 });
 
 export function validateContactInput(input: unknown): {
@@ -21,7 +20,7 @@ export function validateContactInput(input: unknown): {
       const errors: { [key: string]: string } = {};
       for (const field in formatted) {
         if (formatted[field]?.length) {
-          errors[field] = formatted[field][0]; // Return first message per field
+          errors[field] = formatted[field][0] ?? ''; // Ensure string type
         }
       }
       return { valid: false, errors };

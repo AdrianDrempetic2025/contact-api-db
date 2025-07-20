@@ -12,6 +12,9 @@ export async function createContact(input: unknown) {
       .values(data)
       .returning({ id: contactMessages.id }); // Use correct table name
 
+    if (!inserted) {
+      throw new Error("Failed to retrieve inserted ID");
+    }
     return { id: inserted.id };
   } catch (err: unknown) {
     if (err instanceof z.ZodError) { // Correctly referencing z.ZodError
