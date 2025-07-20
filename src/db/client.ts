@@ -1,7 +1,7 @@
 import { Pool } from "pg";
 import { drizzle } from "drizzle-orm/node-postgres";
-import { contactMessages } from '@/src/db/schema'; // Corrected import path
-import { env } from "@/src/lib/env";
+import { contactMessages } from '@/db/schema';
+import { env } from "@/lib/env";
 
 // Create DB connection pool
 const client = new Pool({

@@ -3,14 +3,15 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   plugins: [tsconfigPaths()],
-  resolve: {
-    alias: {
-      '@lib':      '/src/lib',
-      '@db':       '/src/db',
-      '@modules':  '/src/modules',
-      '@':         '/src'
-    }
-  },
+  // Removed resolve.alias to rely solely on vite-tsconfig-paths plugin for alias resolution
+  // resolve: {
+  //   alias: {
+  //     '@lib':      '/src/lib',
+  //     '@db':       '/src/db',
+  //     '@modules':  './src/modules',
+  //     '@':         './src'
+  //   }
+  // },
   test: {
     globals: true,
     environment: 'node',
