@@ -1,6 +1,6 @@
 import { createServer as createHttpServer, IncomingMessage, ServerResponse } from 'http';
 import supertest from 'supertest';
-import { POST } from '@/app/api/contacts/route'; // Adjust import path if needed
+import { POST } from '../app/api/contacts/route'; // Adjusted relative import path
 
 export function createServer() {
   const server = createHttpServer(async (req: IncomingMessage, res: ServerResponse) => {

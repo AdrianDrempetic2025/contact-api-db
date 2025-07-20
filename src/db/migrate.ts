@@ -1,5 +1,5 @@
 import { migrate } from "drizzle-orm/node-postgres/migrator";
-import { db } from "@/src/db/client"; // Assuming db is exported from client.ts
+import { db } from "@/db/client"; // Assuming db is exported from client.ts
 
 async function main() {
   try {

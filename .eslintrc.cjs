@@ -14,7 +14,11 @@ module.exports = {
   rules: {
     'unused-imports/no-unused-imports': 'error',
     'import/prefer-default-export': 'off',
-    'no-console': ['error', { allow: ['warn', 'error'] }]
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-restricted-imports': [
+      'error',
+      { patterns: ['../*../*'] }  // blocks ../../foo style forever
+    ]
   },
   ignorePatterns: ['dist', '.eslintrc.cjs']
 };

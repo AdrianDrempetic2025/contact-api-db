@@ -1,5 +1,5 @@
-import { db } from "@/src/db/client";
-import { contactMessages } from "@/src/db/schema";
+import { db } from "@/db/client";
+import { contactMessages } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
 async function main() {

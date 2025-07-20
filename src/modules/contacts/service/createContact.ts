@@ -1,7 +1,7 @@
-import { contactInputSchema } from '@/src/modules/contacts/model/contact.schema';
-import { db } from '@/src/db/client'; // Changed import from drizzle to db
-import { contactMessages } from '@/src/db/schema'; // Corrected import path
-import { z } from 'zod'; // Import z for ZodError
+import { contactInputSchema } from '@modules/contacts/model/contact.schema';
+import { db } from '@db/client';
+import { contactMessages } from '@db/schema';
+import { z } from 'zod';
 
 export async function createContact(input: unknown) {
   try {

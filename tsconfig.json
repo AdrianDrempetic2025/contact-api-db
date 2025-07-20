@@ -1,14 +1,11 @@
 {
   "compilerOptions": {
+    /* --- existing options --- */
     "target": "ES2022",
     "lib": ["DOM", "ES2022"],
     "module": "CommonJS",
     "outDir": "build/",
     "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-    },
     "strict": true,
     "noImplicitAny": true,
     "noUncheckedIndexedAccess": true,
@@ -17,8 +14,19 @@
     "resolveJsonModule": true,
     "types": ["node"],
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    /* --- NEW section for aliases --- */
+    "baseUrl": ".",                 // project root
+    "paths": {
+      "@lib/*":      ["src/lib/*"],
+      "@db/*":       ["src/db/*"],
+      "@modules/*":  ["src/modules/*"],
+      "@tests/*":    ["tests/*"],
+      "@/*":         ["src/*"]      // fallback
+    }
   },
+
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["dist", "node_modules"]
 }

@@ -1,8 +1,8 @@
 import { describe, test, beforeAll, afterEach, afterAll, expect } from 'vitest';
 import supertest from 'supertest';
 import { createServer } from '../../testHelpers/testServer';
-import { db } from '@/src/db/client';
-import { contactMessages } from '@/src/db/schema';
+import { db } from '@/db/client';
+import { contactMessages } from '@/db/schema';
 
 const request = createServer();
 
