@@ -2,7 +2,7 @@
 
 ## 🧭 Overview
 
-This project implements a secure, minimal, and fully testable **REST API endpoint** for accepting contact form submissions. The API receives `POST` requests at `/api/contacts`, performs strict validation, and stores the messages in a PostgreSQL database using a modern, type-safe ORM.
+This project implements a secure, minimal, and fully testable **REST API endpoint** for accepting contact form submissions. The API receives `POST` requests at `/api/contact`, performs strict validation, and stores the messages in a PostgreSQL database using a modern, type-safe ORM.
 
 The application is built with a modular architecture leveraging Next.js API routes (or app router), TypeScript, Zod for schema validation, and Drizzle ORM for database interaction. It emphasizes clean separation of concerns, robust error handling, and maintainability.
 
@@ -25,7 +25,7 @@ The application is built with a modular architecture leveraging Next.js API rout
 ## 🚀 API Specification
 
 **Endpoint:**  
-`POST /api/contacts`
+`POST /api/contact`
 
 **Required Headers:**  
 `Content-Type: application/json`
